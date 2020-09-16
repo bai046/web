@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>html基本元素</title>
 </head>
 <body>
     <p>江西软件职业技术大学</p>
     用户名：<input type="text" name="username" value=""/><!--类型+定位名字+后台判断-->
     密码：<input type="password" name="password" value=""/>
     
-    <input type="radio" name="sex" value="1"/>男
+    <input type="radio" name="sex" value="1" />男
     <input type="radio" name="sex" value="0"/>女
 
     <input type="checkbox" name="love" value="music" />听音乐
@@ -21,7 +21,66 @@
     提交按钮：<input type="submit" name="submit" value="提交"/>
     重置按钮：<input type="reset" name="reset" value="重置"/>
 
-    图片按钮：<input type="image" name="img_btn" scr="love.jpg"/>
+    图片按钮：<input type="image" name="img_btn" src="URL"/>
+
+    <input type="hidden" name="uid" value="18"/>
+
+    <input type="file" name="photo"/>
+
+    手机号码：<input type="number" name="phone"/>
+
+    <input type="color" name="color"/>
+
+    <input type="data" name="date"/>
+    <input type="time" name="time"/>
+    <input type="datatime-local" name="datetime-local"/>
+    <input type="month" name="month"/>
+    <input type="week" name="week"/>
+    <input type="email" name="name"/>
+    <input type="range" min="0" max="10" value="0"/>
+    <input type="search" name="search"/>
+    <input type="submit" name="submit" value="搜索"/>
+    <input type="url" name="url"/>
+    <input type="submit" name="submit" value="提交"/>
+    <input type="search" name="keywords" autocompulete="on"/>
+    <input type="submit" namw="submit" valut="提交"/>
+    <input type="search" name="keywords" autocomplete="on"/>
+    <input type="submit" name="submit" value="提交"/>
+    用户名：<input type="text" name="username" placeholder="请输入用户名..."/>
+    *<input type="text" name="username" required/>
+    <input type="submit" name="submit" value="提交"/>
+    <input list="bllk" placeholder="请输入..."/>
+
+    <datalist id="book">
+        <option value="HTML">
+        <option value="CSS">
+    </datalist>
+
+    <testarea name="content" rows="5" clos="50"></testarea>
+
+    <select name="city">
+        <option value="0">请选择</option>
+        <option value="dg">东莞</option>
+        <option value="gz">广州</option>
+    </select>
+
+    <select name="city">
+        <optgroup label="主要城市">
+            <option value="1">广州</option>
+            <option value="2">北京</option>
+        </optgroup>
+        <optgroup label="其他城市">
+            <option value="3">深圳</option>
+            <option value="4">珠海</option>
+        </optgroup>
+    </select>
+
+
+    <input type="radio" name="sex" value="1" id="male"/>
+    <label for="male">男</label>
+    <input type="radio" name="sex" value="0" id="female"/>
+    <label for="female">女</label>
+    <input type="text">
 
 </body>
 </html>
