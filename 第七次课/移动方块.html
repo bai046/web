@@ -21,7 +21,10 @@
             position: absolute; 
             left: 100px;
             top: 400px;
-
+            /* 盒子模型 */
+            border: 10px solid blue;/*dotted green */
+            padding: 20px;
+            margin: 5px 10px 15px 20px ;
         }
     </style>
 </head>
@@ -32,17 +35,21 @@
     <div id="box2" class="box">
 
     </div>
-    <br>
-    <br>
-    <br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><!--被方块覆盖会失去作用 -->
     <input type="button" id="btn1" value="请点击我">
     <script>
         var target = document.getElementById("btn1");
         target.onclick = function(){
+            // 第四象限移动，left向右移动
             var leftValue = document.getElementById("box1").style.left;
             leftValue = leftValue.replace("px","");
             leftValue = Number(leftValue) + 5;
             document.getElementById("box1").style.left = leftValue + "px";
+            //top向下运动，加left向右下方运动
+            var topValue = document.getElementById("box1").style.top;
+            topValue = topValue.replace("px","");
+            topValue = Number(topValue) + 5;
+            document.getElementById("box1").style.top= topValue + "px";
 
         }
     </script>
