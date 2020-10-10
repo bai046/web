@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #box1{
-            background-color: blue;
+        .box{
             width: 100px;
             height: 100px;
+        }
+        #box1{
+            background-color: blue;
+
             position: absolute;
             left: 400px;
             top: 200px;
@@ -16,8 +19,7 @@
         }
         #box2{
             background-color:red;
-            width: 100px;
-            height: 100px;
+           
             position: absolute; 
             left: 100px;
             top: 400px;
@@ -29,7 +31,7 @@
     </style>
 </head>
 <body>
-    <div id="box1" class="box">
+    <div id="box1" class="box"><!--类选择器可以相同，ID选择器无法 -->
 
     </div>
     <div id="box2" class="box">
