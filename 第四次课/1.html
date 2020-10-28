@@ -7,50 +7,62 @@
 </head>
 <body>
     <p>江西软件职业技术大学</p>
-    用户名：<input type="text" name="username" value=""/><!--类型+定位名字+后台判断-->
-    密码：<input type="password" name="password" value=""/>
-    
+        *用户名：<input type="text" name="username" placeholder="请输入用户名..."required/>
+        *密码：<input type="password" name="password" value=""/><!--类型+定位名字+后台判断-->
+       <input type="submit" name="submit" value="提交"/>
+<br>
+       <form method="GET" action="shiyan.html"><!--menthod有post/get  -->
+        <p>名字：<input name="name" type="text"></p>
+        <p>密码：<input name="pass" type ="password"></p>
+        <p>
+            <input type="submit" name="Button" value="提交"/>
+            <input type="reset" name="Reset" value="重填"/>
+        </p>
+    </form>
+    <br>
     <input type="radio" name="sex" value="1" />男
     <input type="radio" name="sex" value="0"/>女
+    <br>
+    <input type="radio" name="sex" value="1" id="male"/>
+    <label for="male">男</label>
+    <input type="radio" name="sex" value="0" id="female"/>
+    <label for="female">女</label>
 
+    <br>
     <input type="checkbox" name="love" value="music" />听音乐
     <input type="checkbox" name="love" value="movie" />看电影
     <input type="checkbox" name="love" value="game" />玩游戏
 
+    <hr>
     普通按钮：<input type="button" name="btn" value="确定"/>
     提交按钮：<input type="submit" name="submit" value="提交"/>
     重置按钮：<input type="reset" name="reset" value="重置"/>
-
+    <br>
     图片按钮：<input type="image" name="img_btn" src="URL"/>
     <a href="https://github.com/bai046">mygithub</a>
-
-    <input type="hidden" name="uid" value="18"/>
-
-    <input type="file" name="photo"/>
-
+    <hr>
+    <input type="hidden" name="uid" value="18"/><br>
+    <input type="file" name="file"/>
     手机号码：<input type="number" name="phone"/>
-
     <input type="color" name="color"/>
-
+    <input type="range" min="0" max="10" value="0"/>
+<br>
+    
     <input type="data" name="date"/>
-    <input type="time" name="time"/>
     <input type="datatime-local" name="datetime-local"/>
+    <input type="time" name="time"/>
     <input type="month" name="month"/>
     <input type="week" name="week"/>
+    <br>
     <input type="email" name="name"/>
-    <input type="range" min="0" max="10" value="0"/>
     <input type="search" name="search"/>
-    <input type="submit" name="submit" value="搜索"/>
     <input type="url" name="url"/>
     <input type="submit" name="submit" value="提交"/>
     <input type="search" name="keywords" autocompulete="on"/>
     <input type="submit" namw="submit" valut="提交"/>
-    <input type="search" name="keywords" autocomplete="on"/>
-    <input type="submit" name="submit" value="提交"/>
-    用户名：<input type="text" name="username" placeholder="请输入用户名..."/>
-    *<input type="text" name="username" required/>
-    <input type="submit" name="submit" value="提交"/>
-    <input list="bllk" placeholder="请输入..."/>
+<br>
+    
+    
 
     <datalist id="book">
         <option value="HTML">
@@ -75,13 +87,5 @@
             <option value="4">珠海</option>
         </optgroup>
     </select>
-
-
-    <input type="radio" name="sex" value="1" id="male"/>
-    <label for="male">男</label>
-    <input type="radio" name="sex" value="0" id="female"/>
-    <label for="female">女</label>
-    <input type="text">
-
 </body>
 </html>
