@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: green;
+
+        }
+
+        .wrapper {
+            background-color: yellow;
+            width: 600px;
+            height: 400px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -300px;
+            margin-top: -200px;
+        }
+
+        #leftTab {
+            background-color: aqua;
+            width: 30%;
+            height: 90%;
+            position: absolute;
+            top: 5%;
+        }
+
+        #rightTab {
+            background-color: blueviolet;
+            width: 70%;
+            height: 90%;
+            float: right;
+            position: relative;
+            top: 5%
+        }
+
+        .menu {
+            background-color: lightseagreen;
+            height: 30px;
+            margin-top: 10px;
+        }
+
+        #leftTab div:first-child {
+            margin-top: 80px;
+            background-color: lightslategray;
+        }
+        .menu a{
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            height: 100%;
+
+        }
+        .menu a:active{
+            background-color: maroon;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="leftTab">
+            <!--#menu$*5    Alt+选中+松开写-->
+            <div id="menu1" class="menu">
+                <a href="#home" class="menuName">学校概况</a></div>
+            <div id="menu2" class="menu">
+                <a href="#news" class="menuName">新闻中心</a></div>
+            <div id="menu3" class="menu">
+                <a href="#departments" class="menuName">机构设置</a></div>
+            <div id="menu4" class="menu">
+                <a href="#techers" class="menuName">师资队伍</a></div>
+            <div id="menu5" class="menu">
+                <a href="#teching" class="menuName">教育教学</a></div>
+        </div>
+        <div id="rightTab">
+            <div id="home">1</div>
+            <div id="news">2</div>
+            <div id="departments"></div>
+            <div id="techers"></div>
+            <div id="teching"></div>
+        </div>
+    </div>
+</body>
+
+</html>
