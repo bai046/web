@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>制作表单</title>
+    <style type="text/css">
+        /* 样式设置的一些默认值 */
+        html,
+        body,
+        h1,
+        form,
+        fieldset,
+        legend,
+        ol,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* background: #edc0fe; */
+            background-image: linear-gradient(125deg,#F44336,#E91E63,#9C27B0,#3F51B5,#2196F3);
+            color: #111111;
+            font-family: Georgia, "Times New Roman", Times, serif;
+            padding-left: 20px;
+            counter-reset: fieldsets;
+        }
+
+        .main {
+            background-color: darkorchid;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            padding: 20px;
+            width: 400px;
+            margin: auto;
+            margin-top: 7px;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        #submit {
+            background-color: darkorchid;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            padding: 5px 20px 5px 20px;
+            width: 400px;
+            margin: auto;
+            margin-top: 1px;
+            position: relative;
+            text-align: center;
+        }
+
+        #formSubmit {
+            padding: 0px 30px 0px 30px;
+            position: relative;
+            margin: 0 auto;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        #formSubmit {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        #formSubmit:hover {
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        #formSubmit:active {
+            box-shadow: 0 3px #666;
+            transform: translateY(1px);
+        }
+
+        .main fieldset {
+            border: none;
+            margin-bottom: 10px;
+        }
+
+        .main fieldset:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .main legend {
+            color: #384313;
+            font-size: 16px;
+            font-weight: bold;
+            padding-bottom: 10px;
+            text-shadow: 0 1px 1px #c0d576;
+        }
+
+        .main>.content>fieldset>legend:before {
+            counter-increment: fieldsets;
+            content: "步骤 "counter(fieldsets) ": ";
+            color:black;
+        }
+
+        .main fieldset fieldset legend {
+            color: #111111;
+            font-size: 13px;
+            font-weight: normal;
+            padding-bottom: 0;
+        }
+
+        .main ol li {
+            background: #b9cf6a;
+            background: rgba(255, 255, 255, .3);
+            border-color: #e3ebc3;
+            border-color: rgba(255, 255, 255, .6);
+            border-style: solid;
+            border-width: 2px;
+            -webkit-border-radius: 5px;
+            line-height: 30px;
+            list-style: none;
+            padding: 5px 10px;
+            margin-bottom: 2px;
+        }
+
+        .main ol ol li {
+            background: none;
+            border: none;
+            float: left;
+        }
+
+        .main label {
+            float: left;
+            font-size: 13px;
+            width: 110px;
+        }
+
+        .main fieldset fieldset label {
+            background: none no-repeat left 50%;
+            line-height: 20px;
+            padding: 0 0 0 30px;
+            width: auto;
+        }
+
+        .main fieldset fieldset label:hover {
+            cursor: pointer;
+        }
+
+        .main input:not([type=radio]),
+        .main textarea {
+            background: #ffffff;
+            border: #FC3 solid 1px;
+            -webkit-border-radius: 3px;
+            font: italic 13px Georgia, "Times New Roman", Times, serif;
+            outline: none;
+            padding: 5px;
+            width: 200px;
+        }
+
+        .main input:not([type=submit]):focus,
+        .main textarea:focus {
+            background: #eaeaea;
+            border: #F00 solid 1px;
+        }
+
+        .main input[type=radio] {
+            float: left;
+            margin-right: 5px;
+        }
+
+        #country {
+            width: 57%;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <form action="" class="content">
+            <fieldset>
+                <legend>基本信息: </legend>
+                <ol>
+                    <li>
+                        <label for="username">用户名称：</label>
+                        <input id="username" name="username" type="text" placeholder="请输入用户名" required autofocus>
+                    </li>
+                    <li>
+                        <label for="email">邮件地址：</label>
+                        <input id="email" name="email" type="email" placeholder="12345678@jvtus.com" required>
+                    </li>
+                    <li>
+                        <label for="phone">联系电话：</label>
+                        <input id="phone" name="phone" type="tel" placeholder="0791-987654321" required>
+                    </li>
+                </ol>
+            </fieldset>
+
+            <fieldset>
+                <legend>学校住址（收货地址）：</legend>
+                <ol>
+                    <li>
+                        <label for="address">详细地址：</label>
+                        <textarea id="address" name="address" rows="3" required></textarea>
+                    </li>
+                    <li>
+                        <label for="postcode">邮政编码：</label>
+                        <input id="postcode" name="postcode" type="text" required>
+                    </li>
+                    <li>
+                        <label for="country">国 家：</label>
+                        <select id="country" name="country" type="" required>
+                            <option value="china">中国</option>
+                            <option value="usa">美国</option>
+                            <option value="korean">韩国</option>
+                            <option value="german">德国</option>
+                        </select>
+                    </li>
+                </ol>
+            </fieldset>
+
+            <fieldset>
+                <legend>付费方式: </legend>
+                <ol>
+                    <li>
+                        <fieldset>
+                            <legend>信用卡类型</legend>
+                            <ol>
+                                <li>
+                                    <input id="jiujiang" name="cardtype" type="radio">
+                                    <label for="jiujiang">九江银行</label>
+                                </li>
+                                <li>
+                                    <input id="ganshang" name="cardtype" type="radio">
+                                    <label for="ganshang">赣商银行</label>
+                                </li>
+                                <li>
+                                    <input id="jiangxi" name="cardtype" type="radio">
+                                    <label for="jiangxi">江西银行</label>
+                                </li>
+                            </ol>
+                        </fieldset>
+                    </li>
+                    <li>
+                        <label for="cardnumber">银行卡号：</label>
+                        <input id="cardnumber" name="cardnumber" type="number" required>
+                    </li>
+                    <li>
+                        <label for="secure">验 证 码：</label>
+                        <input id="secure" name="secure" type="text" required>
+                    </li>
+                    <li>
+                        <label for="namecard">持 卡 人：</label>
+                        <input id="namecard" name="namecard" type="text" placeholder="确定是否该卡用户！" required>
+                    </li>
+                </ol>
+            </fieldset>
+        </form>
+
+    </div>
+    <div id="submit">
+        <input type="submit" value="提  交" id="formSubmit" class="submit">
+    </div>
+</body>
+
+</html>
