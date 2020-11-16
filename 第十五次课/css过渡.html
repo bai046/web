@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css过渡</title>
+    <style>
+        #wrapper{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border:10px solid green;
+
+        }
+        #wrapper:hover{
+            width: 500px;
+            height: 300px;
+            /* 转变，ease时间函数 ,all表示宽高都变，先延迟3秒，再5秒变完*/
+            transition:all ease 5s 3s;
+/* transition四个基本属性值 https://blog.csdn.net/cuishizun/article/details/82345612  */
+        }
+
+    </style>
+   
+</head>
+<body onload="init()">
+    <div id="wrapper">
+
+    </div>
+
+     <!-- js里皆是对象 -->
+     <script>
+        function init() {
+            var target = window.document.getElementById("wrapper");
+            target.style.backgroundColor="blue";
+            
+        var apple=1;
+        var lemon="柠檬";
+        var banana=true;
+        var pear=null;
+        var orangr=undefine;
+
+
+        var peach=function peachSum(){
+
+        }
+        var water={};
+        console.log(typeof.water);
+
+        }
+        
+    </script>
+</body>
+</html>
