@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js过渡</title>
+    <link id="mystyle" rel="stylesheet" href="index1.css">
+</head>
+<body>
+    <div id="wrapper">
+        <br>
+        <br>
+        <br>
+    </div>
+    <input type="button" value="换肤" id="myclick">
+        
+    </button>
+    <script>
+        var myclickTarget=document.getElementById("myclick");
+        myclickTarget.onclick= function () {
+            var styleTarget=document.getElementById("mystyle");
+        styleTarget.href="index2.css"; 
+        }      
+    </script>
+
+</body>
+</html>
