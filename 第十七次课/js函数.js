@@ -95,12 +95,60 @@
 // })(3,6)
 
 
-
 //原型
-var a7=function(){
-    console.log("a7 原型")
+
+// class Furit{
+    function Furit(){
+        this.name = "Furit"
+        console.log("this is furit");
+    }
+// }
+
+
+Furit.prototype.apple= function apple(){
+    console.log("this is apple");
 }
-a7.prototype.apple=function(){
-    console.log("apple");
+var a88 = new Furit();
+console.log(a88.apple())
+
+//一点java 代码
+/**
+ * 
+ * package test;
+
+public class TestMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("this is java");
+		Furit apple = new Furit("苹果",1);
+		Furit orange = new Furit("橘子",2);		
+	}
+
 }
-a7.apple();
+
+class Furit {
+	private String name;
+	private int age ;
+	public  Furit(String name, int age) {
+		this.name=name;
+		this.age = age;
+	}
+	public void  printName() {
+		System.out.println(this.name);
+	}
+}
+ */
+
+// function Person(name,height){
+//     this.name=name;
+//     this.height=height;
+//     }
+//     Person.prototype.hobby=function(){
+//     return 'watching movies';
+//     }
+//     var boy=new Person('keith',180);
+//     var girl=new Person('rascal',153);
+//     console.log(boy.name); //'keith'
+//     console.log(girl.name); //'rascal'
+//     console.log(boy.hobby===girl.hobby); //true
