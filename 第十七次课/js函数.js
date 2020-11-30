@@ -59,6 +59,7 @@
 // //语法糖
 // var a2 = {}
 // console.log(typeof a1)
+
 // console.log(typeof a2)
 
 // var a3 =Object.create(null);
@@ -111,6 +112,8 @@ Furit.prototype.apple= function apple(){
 var a88 = new Furit();
 console.log(a88.apple())
 
+
+
 //一点java 代码
 /**
  * 
@@ -132,7 +135,7 @@ class Furit {
 	private int age ;
 	public  Furit(String name, int age) {
 		this.name=name;
-		this.age = age;
+		this.price = price;
 	}
 	public void  printName() {
 		System.out.println(this.name);
@@ -142,6 +145,7 @@ class Furit {
 
 // function Person(name,height){
 //     this.name=name;
+
 //     this.height=height;
 //     }
 //     Person.prototype.hobby=function(){
