@@ -32,8 +32,9 @@ var pi =function pitaya(){
 }
 
 //是二种函数形式（重，`${传参，可多个} `里的模板字符串）反引号：英文状态~  
-//大写Function是大函数，为一个对象
+//大写Function是构造的函数，需要传参，为一个对象，同原型是作者写死固定的
 let pea1='return '+'`我是一个${name}`';
+
 let peanut5=new Function('name',pea1);
 console.log(peanut5("字符串模板"))
 //return后有空格，仿下；
