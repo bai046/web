@@ -10,14 +10,89 @@
 // 6、按照构造函数的形参要求，new 出对象出来，调用原型上的函数。
 function city(cityName,cityArea,cityPostcode,cityRegions){
     this.cityName=cityName,
-    this.cityArea=function(){
-        orgionName
-
-    }
+    this.cityArea=cityArea,
     this.cityPostcode=cityPostcode,
-    this.cityRegions=cityRegions;
-    this.cityName=function(){
-        console.log(this.cityName);
+    this.cityRegions=cityRegions
+
+    var cityRegions = new Array();
+    var obj = {orgionName: '东湖区',
+            orgionPostcode: 123456,
+            orgionArea:1000};
+    cityRegions[cityRegions.length] = obj;
+    cityRegions = [{orgionName: '东湖区',
+                orgionPostcode: 123456,
+                orgionArea:1000},
+            {orgionName: "西湖区",
+            orgionPostcode: 123456,
+            orgionArea:1000},
+            {orgionName: "青山湖区",
+            orgionPostcode: 123456,
+            orgionArea:1000}];
+		
+
+
+    city.prototype.printName=function (){
+        console.log(this.cityName)
+    }
+    city.prototype.printArea=function (){
+        console.log(this.cityArea)
+    }
+    city.prototype.printPostcode=function (){
+        console.log(this.cityPostcode)
     }
 
+    city.prototype.printRegions=function (){
+    // for (arr of cityRegions){
+    //     console.log(arr)        
+    // }
+    for(var i=0;i<cityRegions.length;i++){
+        console.log(cityRegions[i].orgionArea+' '+cityRegions[i].orgionName+' '+cityRegions[i].orgionPostcode);
+       }
 }
+    
+}
+var p=new city("南昌市",888888,'abcdef',);
+p.printName();
+p.printArea();
+p.printPostcode();
+p.printRegions();
+
+
+
+function city(cityName,cityArea,cityPostcode,cityRegions){
+    this.cityName=cityName,
+    this.cityArea=cityArea,
+    this.cityPostcode=cityPostcode,
+    this.cityRegions=cityRegions
+
+    this.cityRegions=new Array();
+		
+    city.prototype.printName=function (){
+        console.log(this.cityName)
+    }
+    city.prototype.printArea=function (){
+        console.log(this.cityArea)
+    }
+    city.prototype.printPostcode=function (){
+        console.log(this.cityPostcode)
+    }
+
+  city.prototype.printRegions=function (){
+    // for (arr of cityRegions){
+    //     console.log(arr)        
+    // }
+    for(var i=0;i<cityRegions.length;i++){
+        console.log(cityRegions[i]+' ');
+       }
+}
+    
+}
+var p=new city("南昌市",888888,'abcdef',["东湖区",'西湖区',"青山湖区","新建区","湾里区"]); 
+p.printName();
+p.printArea();
+p.printPostcode();
+p.printRegions();
+
+
+// https://blog.csdn.net/plannothing/article/details/107570530
+// JavaScript中数组的字面量
