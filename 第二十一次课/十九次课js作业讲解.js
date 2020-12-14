@@ -76,4 +76,11 @@ function pear2(){
 pear2()
 pear2()
 
-//异步
+//异步，增补网络下载图片，淘宝（先信息后图片）
++function(){
+    console.log("3000前字")
+    setTimeout(function(){
+        console.log("3000后图")
+    },3000)
+}
+
