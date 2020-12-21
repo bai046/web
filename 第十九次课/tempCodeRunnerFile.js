@@ -1,33 +1,30 @@
-function city(cityName,cityArea,cityPostcode,cityRegions){
-    this.cityName=cityName,
-    this.cityArea=cityArea,
-    this.cityPostcode=cityPostcode,
-    this.cityRegions=cityRegions
-
-    this.cityRegions=new Array();
-		
-    city.prototype.printName=function (){
-        console.log(this.cityName)
-    }
-    city.prototype.printArea=function (){
-        console.log(this.cityArea)
-    }
-    city.prototype.printPostcode=function (){
-        console.log(this.cityPostcode)
-    }
-
-  city.prototype.printRegions=function (){
-    // for (arr of cityRegions){
-    //     console.log(arr)        
-    // }
-    for(var i=0;i<cityRegions.length;i++){
-        console.log(cityRegions[i]+' ');
-       }
+function City(cityName,cityArea,cityPostcode,cityRegions){
+    this.cityName=cityName;
+    this.cityArea=cityArea;
+    this.cityPostcode=cityPostcode;
+    this.cityRegions=cityRegions;
 }
-    
+
+var EastLake={
+   orgionArea:123,
+   orgionName:"东湖区",
+   orgionPostcode:"123456",
 }
-var p=new city("南昌市",888888,'abcdef',["东湖区",'西湖区',"青山湖区","新建区","湾里区"]); 
-p.printName();
-p.printArea();
-p.printPostcode();
-p.printRegions();
+var WestLake={
+   orgionArea:231,
+   orgionName:"西湖区",
+   orgionPostcode:"654321",
+}
+
+
+City.prototype.show=function(){
+    for(let i=0;i<cityRegions.length;i++){
+        console.log("cityName:" + this.cityName + "cityArea:" + this.cityArea +
+        "cityPostcode:" + this.cityPostcode + "cityRegions:" +this.cityRegions[i]);
+    }
+   
+}()
+
+var cityRegions=[EastLake,WestLake]
+var city1=new City("南昌市",12345,"564545",cityRegions)
+console.log(city1)

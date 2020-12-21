@@ -1,0 +1,31 @@
+<!-- 完整代码 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue示例，官网</title>
+    <!-- 网站：https://cn.vuejs.org/v2/guide/ -->
+    <!-- vue引用直接用法 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <p>{{ message }}</p>
+        <p>{{title}}</p>
+      </div>
+
+</body>
+
+<script>
+    var app = new Vue({
+  el: '#app',//el元素
+  data: {
+    message: 'Hello Vue!',
+    title:'this is vue'
+  }
+})
+
+</script>
+</html>

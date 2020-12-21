@@ -16,17 +16,17 @@ function city(cityName,cityArea,cityPostcode,cityRegions){
 
     var cityRegions = new Array();
     var obj = {orgionName: '东湖区',
-            orgionPostcode: 123456,
-            orgionArea:1000};
+    orgionPostcode: 'abcdef',
+    orgionArea:1000};
     cityRegions[cityRegions.length] = obj;
     cityRegions = [{orgionName: '东湖区',
-                orgionPostcode: 123456,
+                orgionPostcode: 'abcdef',
                 orgionArea:1000},
             {orgionName: "西湖区",
-            orgionPostcode: 123456,
+            orgionPostcode: 'abcdef',
             orgionArea:1000},
             {orgionName: "青山湖区",
-            orgionPostcode: 123456,
+            orgionPostcode: 'abcdef',
             orgionArea:1000}];
 		
 
@@ -46,16 +46,19 @@ function city(cityName,cityArea,cityPostcode,cityRegions){
     //     console.log(arr)        
     // }
     for(var i=0;i<cityRegions.length;i++){
-        console.log(cityRegions[i].orgionArea+' '+cityRegions[i].orgionName+' '+cityRegions[i].orgionPostcode);
+        
+        console.log(cityRegions[i].orgionName+' '+cityRegions[i].orgionPostcode+' '+cityRegions[i].orgionArea+' ');
        }
 }
     
 }
+  
 var p=new city("南昌市",888888,'abcdef',);
 p.printName();
 p.printArea();
 p.printPostcode();
 p.printRegions();
+
 
 
 
@@ -93,3 +96,36 @@ p.printRegions();
 // p.printPostcode();
 // p.printRegions();
 
+
+
+// 毛同学的
+//function City(cityName,cityArea,cityPostcode,cityRegions){
+//     this.cityName=cityName;
+//     this.cityArea=cityArea;
+//     this.cityPostcode=cityPostcode;
+//     this.cityRegions=cityRegions;
+// }
+
+// var EastLake={
+//    orgionArea:123,
+//    orgionName:"东湖区",
+//    orgionPostcode:"123456",
+// }
+// var WestLake={
+//    orgionArea:231,
+//    orgionName:"西湖区",
+//    orgionPostcode:"654321",
+// }
+
+
+// City.prototype.show=function(){
+//     for(let i=0;i<cityRegions.length;i++){
+//         console.log("cityName:" + this.cityName + "cityArea:" + this.cityArea +
+//         "cityPostcode:" + this.cityPostcode + "cityRegions:" +this.cityRegions[i]);
+//     }
+   
+// }()
+
+// var cityRegions=[EastLake,WestLake]
+// var city1=new City("南昌市",12345,"564545",cityRegions)
+// console.log(city1)
