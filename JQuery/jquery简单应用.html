@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery简单应用</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <style>
+        .warning{
+            color: red;
+            font-size: 8px;
+        }
+        #apple{
+            background-color: green;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <p>
+            <label for="">用户名：</label>
+            <input type="text" name="username" id="username">
+            <span id="tip1" class="warning"></span>           
+        </p>
+        <p>
+            <label for="">密码：</label>
+            <input type="text" name="password" id="password">
+            <span id="tip2" class="warning"></span>    
+        </p>
+        <p>
+            <div id="apple">
+            </div>
+        </p>
+    </div>
+    <script>
+        // var _username = document.getElementById('username1');
+        // _username.onblur= function (){
+        //     // alert("blur")
+        //     // console.log()
+        //     // alert(_username.value);
+        //     if(_username.value.length < 4){
+        //         // alert("用户长度小于4了")
+        //         var _tip1 = document.getElementById("tip1")
+        //         _tip1.innerHTML = "用户长度小于4了";
+        //     }
+        // }
+
+        // var _password = document.getElementById("password1");
+        // _password.onblur = function (){
+        //     if(_password.value.length < 8){
+        //         document.getElementById("tip2").innerHTML = "密码长度必须大于8位。"
+        //     }
+        // }
+        // var target = $("#apple")
+        // target.click(function(){
+        //     // alert("我被点击了")
+        //     // target.css("background-color","red");
+        //     // target.css("width","600px");
+        //     // target.css("height","500px");
+        //     // 点击div后，颜色切换 从 red 切换到 green
+        //     // 或者 从green 切换到 red
+        //     // alert(target.css("background-color"))
+        //     if("rgb(0, 128, 0)" == target.css("background-color")){
+        //         target.css("background-color","red");
+        //     }
+        //     else if("rgb(255, 0, 0)" == target.css("background-color")){
+        //         target.css("background-color","green");
+        //     }   
+        // })
+
+        $("#username").ready(function (){
+            // 构造一个jquery 对象
+            var newTip = $("<strong class='warning'>*</strong>")
+            // append 是追加的意思
+            $("p:first-child").append(newTip);
+
+            $("#username").blur(function(){
+               if($("#username").val().length < 4){
+                $("#tip1").text("你的密码长度必须大于4位。")
+                $("strong").hide()
+               }
+            })
+        })
+
+
+
+    </script>
+</body>
+</html>
