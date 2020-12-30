@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8"> 
-<title>菜鸟教程(runoob.com)</title> 
-<script>
-$(document).ready(function(){
-  $("p").click(function(){
-    $(this).hide();
-  });
-});
-</script>
-</head>
 <body>
-<p>如果你点我，我就会消失。</p>
-<p>继续点我!</p>
-<p>接着点我!</p>
+  
+<p>此示例使用 addEventListener() 方法将 click 事件附加到按钮。</p>
+<button id="myB">text</button>
+<p id="demo"></p>
+<script>
+document.getElementById("myB").addEventListener("click", displayDate);
+function displayDate() {
+  document.getElementById("demo").innerHTML = Date();
+}
+</script>
+
 </body>
 </html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件</title>
+    <style>
+        #wrapper{
+            background-color: red;
+            width: 10px;
+            height: 20px;
+            position: relative;
+        }
+    </style>
+    
+</head>
+<body onclick="loadNew">
+    <div id="wrapper">
+
+    </div>
+
+    <script>
+        // 页面添加事件，至少三种1，
+        function loadNew(){
+            console.log("loadNew")
+        }
+        //3，添加事件，监听器
+        window.addEventListener("click",function(){
+            console.log("this is click")
+        })
+        // 2，window.onclick=function(){}
+        var grow=2;
+        window.addEventListener("mousemove",function(event){
+            document.getElementsById("wrapper").style.left=event.clientX+"px";
+            document.getElementsById("wrapper").style.top=event.clientY+"px";
+
+            // console.log(event.x+" "+event.y);
+        })
+
+        // window.addEventListener("mouseout",function(event){
+        //     documeng.getElementsById("wrapper").style.backgroundColor="green"
+        // })
+        var target=document.getElementById("wrapper");
+        window.addEventListener("mouseout",function(){
+            console.log("this is mouseout")
+            target.style.backgroundColor="green"
+            
+        })
+         
+        
+        
+        
+    </script>
+</body>
+</html>
