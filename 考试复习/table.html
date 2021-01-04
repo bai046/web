@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border=0 title="测试">
+        <caption> 表格标题</caption>
+        <tr><!-- 表行 -->
+            <th>姓名</th><!-- 表头 -->
+            <th>年龄</th>
+        </tr>
+        <tr>
+            <td>张一</td>
+            <td>21</td>
+        </tr>
+        <tr>
+            <td><input type=text /></td>
+            <td><input type=text /></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type=submit /></td>
+        </tr>       
+    </table>
+
+    <form enctype="multipart/form-data" action="ashx/login.ashx" method="post">
+        <!-- 可省为<form method="post"> -->
+        <table>
+            <tr>
+                <td><label for="name">账号：</label></td>
+                <td><input type="text" id="name" name="username"/></td>
+            </tr>
+            <tr>
+                <td><label for="pswd">密码：</label></td>
+                <td><input type="password" id="pswd" name="pswd"/></td>
+            </tr>
+            <tr>
+                <td><input type="reset"/></td>
+                <td><input type="submit"/></td>
+            </tr>
+        </table>
+    </form> 
+
+    <form name='sendmail' action='mailto:sample@163.com'>
+        <input name='cc' type='text' value='sample@hotmail.com'>
+        <input name='subject' type='text' value='test'>
+        <input name='body' type='text' value='use mailto sample'>
+        </form>
+</body>
+</html>

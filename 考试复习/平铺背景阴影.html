@@ -1,0 +1,40 @@
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<title>CSS边框阴影</title> 
+<style> 
+.dropshadow2{ 
+float:left; 
+clear:left; 
+background: url(/jscss/demoimg/200903/shadowAlpha.png) no-repeat bottom right !important; 
+background: url(/jscss/demoimg/200903/shadow.gif) no-repeat bottom right; 
+margin: 10px 0 10px 10px !important; 
+margin: 10px 0 10px 5px; 
+width: 360px; 
+padding: 0px; 
+} 
+.innerbox{ 
+position:relative; 
+bottom:6px; 
+right: 6px; 
+border: 1px solid #999999; 
+padding:4px; 
+margin: 0px 0px 0px 0px; 
+} 
+.innerbox{ 
+/* IE5 hack */ 
+margin: 0px 0px -3px 0px; 
+margin: 0px 0px 0px 0px; 
+} 
+.innerbox p{ 
+font-size:14px; 
+margin: 3px; 
+} 
+</style> 
+</head> 
+<body> 
+<div class="dropshadow2"><div class="innerbox"><h4>CSS阴影：</h4> <p>这段边框阴影效果怎么样呢？</p></div></div> 
+</body> 
+</html> 
+<!-- CSS控制背景图像平铺，从而实现区域边框阴影的效果，可贵之处是本代码不管你需要阴影的区域是多大，它都能自动适应，个人感觉还不错https://www.jb51.net/css/99847.html-->
