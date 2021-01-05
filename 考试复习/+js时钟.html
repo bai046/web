@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击按钮显示时间</title>
+    <script>
+        function displayTime(){
+            fnDate(); //如果不先执行一次fnDate()，点击按钮之后会等一秒才显示时间
+            setInterval(function() {
+                fnDate();
+            },1000)
+        }
+ 
+        function fnDate() {
+            var oPara = document.getElementById("demo");
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth();
+            var day = date.getDate();
+            var hour = date.getHours();
+            var minute = date.getMinutes();
+            var second = date.getSeconds();
+			var week = new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六")[date.getDay()];
+            var time = year+ "-"+ fnW(month+1) + "-"+ fnW(day)+ " "+ fnW(hour)+ ":"+ fnW(minute)+ ":"+ fnW(second) + " "+week;
+            oPara.innerHTML = time;
+        }
+ 
+        function fnW(str) {
+            var num ;
+            str >= 10? num = str: num = "0" +str ;
+            return num;
+        }
+    </script>
+</head>
+<body>
+<div>
+    <p id="demo">这里显示时间</p>
+    <button type="button" onclick="displayTime()">点我看时间</button>
+</div>
+</body>
+</html>

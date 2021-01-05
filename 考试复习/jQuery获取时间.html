@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间函数</title>
+    <style>
+        #time{
+            height: 20px;
+            width: 250px;
+            border: black solid 1px;
+            border-radius: 5px;
+            margin:0px auto;
+            margin-bottom: 20px;
+        }
+        .box {
+            height: 200px;
+            width: 250px;
+            margin: 100px auto;
+            background-color: cornsilk;
+        }
+    </style>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>  
+</head>
+<body>
+    
+    <div class="box">
+        <div id="time"></div>
+        <button id="btn">获取当前时间</button>
+    </div>
+
+    <script>
+        var now = new Date();
+        
+    
+        console.log(now.getDay());
+
+        $('#btn').click(function() {
+            $('#time').text(now.toLocaleString() + " 星期" + now.getDay());
+        })
+        
+    </script>
+</body>
+</html>

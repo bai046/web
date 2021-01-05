@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>表单验证</title>
+    <style>
+
+	 	.wrapper{
+			 background: rgb(142, 212, 240);
+			 width: 300px;
+			 height:200px;
+			 margin: 200px auto;
+		}
+		.int{ 
+			padding: 5px;
+			height: 30px; 
+			text-align: 
+			left; width: 600px; 
+		}
+		label{ 
+			width: 200px; 
+			margin-left: 20px; 
+		}
+		.high{ 
+			color: red; 
+		}
+		.msg{ 
+			font-size: 13px; 
+		}
+		.onError{ 
+			color: red; 
+		}
+		.onSuccess{ 
+			color: green; 
+		}
+    </style>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>  
+</head>
+<body>
+    <form method="post" action="#" class="wrapper">
+        <div class="int">
+            <label for="username">用户名：</label>
+            <input type="username" id="username" class="required" />
+        </div>
+        <div class="int">
+            <label for="password">密码：</label>
+            <input type="password" id="password" class="required" />
+		</div>
+		<div class="int">
+            <label for="cpassword">确认密码：</label>
+            <input type="password" id="cpassword" class="required" />
+		</div>
+        <div class="int">
+			<label for="sex">性别：</label>
+			男：<input type="radio" name="sex" value="man" checked/>
+			女：<input type="radio" name="sex" value="women"/>
+        </div>
+        <div class="int">
+            <input type="submit" value="提交" id="send" style="margin-left: 70px;" />
+            <input type="reset" value="重置" id="res" />
+        </div>
+	</form>
+	<script>
+
+        /**
+         * 编写一个查看字符串中是否含有数字的方法，含有数字返回false，没有数字返回true
+        */
+        function isRealName(val){
+            let flag = true;
+            console.log(val);
+            for (let i = 0; i < val.length; i++) {
+                if (val[i] === "" || val[i] == null) {
+                    return false;
+                }
+                if (!isNaN(val[i])) {
+                    flag = false;
+                    console.log(val[i]);
+                }
+            }
+            return flag;
+        }
+
+		var passwordVal;
+        //为表单元素添加失去焦点事件
+        $("form :input").blur(function(){
+            var $parent = $(this).parent();
+            $parent.find(".msg").remove(); //删除以前的提醒元素（find()：查找匹配元素集中元素的所有匹配元素）
+            //验证用户名
+            if($(this).is("#username")){
+                var nameVal = $.trim(this.value); // $.trim() 这个方法用于去除字符串前后两头的空格，并返回去除空格后的字符串
+                if(nameVal == "" || !isRealName(nameVal)){
+                    var errorMsg = "用户名不能为空，且用户名不能包含数字！";
+                    $parent.append("<span class='msg onError'>" + errorMsg + "</span>");
+                }
+                else{
+                    var okMsg=" 输入正确";
+                    $parent.find(".high").remove();
+                    $parent.append("<span class='msg onSuccess'>" + okMsg + "</span>");
+                }
+            }
+            //验证密码
+            if($(this).is("#password")){
+                passwordVal = $.trim(this.value);
+                if(passwordVal== "" || passwordVal.length < 8 || passwordVal.length > 16){
+                    var errorMsg = "密码不能为空！且密码的长度要大于8小于16";
+                    $parent.append("<span class='msg onError'>" + errorMsg + "</span>");
+                }
+                else{
+                    var okMsg=" 输入正确";
+                    $parent.find(".high").remove();
+                    $parent.append("<span class='msg onSuccess'>" + okMsg + "</span>");
+                }
+			}
+			// 确认密码
+			if($(this).is("#cpassword")){
+                var cpasswordVal = $.trim(this.value);
+                if(cpasswordVal== "" || cpasswordVal.length < 8 || cpasswordVal.length > 16){
+                    var errorMsg = "密码不能为空！且密码的长度要大于8小于16";
+                    $parent.append("<span class='msg onError'>" + errorMsg + "</span>");
+                } else if(cpasswordVal!=passwordVal) {
+					console.log(passwordVal);
+					var errorMsg = "密码不匹配！";
+                    $parent.append("<span class='msg onError'>" + errorMsg + "</span>");
+				} else{
+                    var okMsg=" 输入正确";
+                    $parent.append("<span class='msg onSuccess'>" + okMsg + "</span>");
+                }  
+			}
+		});
+    </script>
+</body>
+</html>
