@@ -1,21 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #name{
-            background-color: blue;
-            width: 200px;
-            height: 400px;
-            border: 10px solid purple;
-            margin: 20px;
-            padding: 20px;
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: gold;
+            position: relative;
         }
-        </style>
+
+    </style>
 </head>
+
 <body>
-    <div id="name">web前端</div>
+    <div id="box"></div>
+    <script>
+
+        var box = document.getElementById("box");
+        let flag = 0;
+        box.addEventListener("click", function () {
+            if (box.clientHeight >= 1000) {
+                flag = 1;
+            } else if(box.clientHeight <= 100){
+                flag = 0;
+            }
+            if (flag == 0) {
+                box.style.width = box.clientWidth + 100 + "px";
+                box.style.height = box.clientHeight + 100 + "px";
+                console.log(box.style.width);
+            } else if (flag == 1) {
+                box.style.width = box.clientWidth - 100 + "px";
+                box.style.height = box.clientHeight - 100 + "px";
+                console.log(box.style.width);
+            }
+
+        })
+    </script>
 </body>
+
 </html>

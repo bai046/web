@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrapper{
+            background-color: brown;
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            position:relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+
+    </div>
+    <input type="button" value="+宽度"/>
+    <input type="button" value="-宽度"/>
+    <input type="button" value="改变宽度"/>
+    <script>
+        // var target=document.getElementById("wrapper");
+        // target.addEventListener("mouseenter",function(event){
+        //     target.style.backgroundColor="green"
+        //     target.style.width="300px"
+        // })
+        // target.addEventListener("mouseleave",function(event){
+        //     target.style.backgroundColor="brown"
+        //     target.style.width="200px"
+        //     target.style.height="200px"
+            
+        // })
+        // target.addEventListener("mouseout",function(event){
+        //     target.style.backgroundColor="yellow"
+        //     target.style.height="300px"
+        // })
+
+
+        // var w=200
+        // window.addEventListener("click",function(){
+        //     console.log("this is click")
+        //     w=w+100;
+        //     target.style.width=w+'px';
+        //     console.log(target.style.width);
+        // })
+
+        // var w=target.getBoundingClientRect().width
+        // // 获取外部样式宽
+        // console.log(target.clientwidth)
+        // window.addEventListener("click",function(){
+        //     console.log("this is click")
+        //     w=w+100;
+        //     target.style.width=w+'px';
+        //     console.log(target.style.width);
+        // })
+
+
+        // box.addEventListener("click", function () {})
+
+        // alert(target.style.width);为行内样式值，是值0
+            // alert(target.clientwidth); 
+            
+        // 范围长度变化    
+        // var box = document.getElementById("wrapper");
+        // let flag = 0;
+        // box.addEventListener("click", function () {
+        //     if(box.clientWidth >= 1000) {
+        //         flag = 1;
+        //     }else if(box.clientWidth <= 100){
+        //         flag = 0;
+        //     }
+        //     if(flag == 0) {
+        //         box.style.width = box.clientWidth + 100 + "px";
+        //         // box.style.height = box.clientHeight + 100 + "px";
+        //         console.log(box.style.width);
+        //     }else if (flag == 1) {
+        //         box.style.width = box.clientWidth - 100 + "px";
+        //         // box.style.height = box.clientHeight - 100 + "px";
+        //         console.log(box.style.width);
+        //     }
+
+        // })
+
+            window.onload = function () {
+            //拿到div
+            var target = document.getElementById("wrapper");
+            //拿到按钮
+            var btns = document.getElementsByTagName("input");
+
+            btns[0].onclick = function add() {
+                //拿到div显示出来的宽度
+                //alert(getStyle(div,"width"));
+                //alert(parseInt(getStyle(div,"width")) + 20);
+                //改变宽度
+                target.style.width = parseInt(getStyle(target,"width")) + 100 + "px";
+                console.log(target.style.width);
+            }
+            btns[1].onclick = function red() {
+                target.style.width = parseInt(getStyle(target,"width")) - 100 + "px";
+                console.log(target.style.width);
+            }
+
+        let flag = 0;    
+        btns[2].onclick = function change() {
+            if(parseInt(getStyle(target,"width")) >= 1000) {
+                flag = 1;
+            }else if(target.clientWidth <= 100){
+                flag = 0;
+            }
+            if(flag == 0) {
+                target.style.width = target.clientWidth + 100 + "px";
+                console.log(target.style.width);
+            }else if (flag == 1) {
+                target.style.width = target.clientWidth - 100 + "px";
+                console.log(target.style.width);
+            }
+        }
+    }
+    // 错误：一直少了一个 }，没注意到左下角的错误结果效果没有出来，还以为自己逻辑错了，一直改，哭死。
+    
+        //获取style样式的css属性,考虑兼容;ie,火狐/谷歌;
+        function getStyle(parm1,parm2) {
+            return parm1.currentStyle ? parm1.currentStyle[parm2] : getComputedStyle(parm1)[parm2];  
+            //parm1,要改变的元素代替名;parm2,要改变的属性名
+        }   
+        
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            /* margin: 0 auto; */
+            padding: 0px;
+        }
+        .contain{
+            /* margin: auto; */
+            width: 150px;
+        }
+        .open{
+            text-align: center;
+            border-left: 5px solid #FF4700;
+        }
+        li{
+            text-align: center;
+            list-style: none;
+            height: 50px;
+            line-height: 50px;
+            display: none;
+        }
+        ul{
+            text-align: center;
+        }
+        li:hover{
+            background-color: pink;
+        }
+        img{
+            height:30px;
+            width: 30px;
+            line-height: 30px;
+            float: left;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 用li表现实现功能 -->
+   <div class="contain">
+       <p class="open">购物特权</p>
+       <ul>
+           <li><img src="https://m.360buyimg.com/babel/jfs/t1/58891/36/278/1745/5cd4f1e0Ef4cc50a7/f12276b17e5dcf3b.png">全额退款</li>
+           <li><img src="https://m.360buyimg.com/babel/jfs/t1/47544/23/372/3943/5cd4f24eE92fbcf79/4b49b55af25a7bdf.png">俱乐部包邮卡</li>
+           <li><img src="https://m.360buyimg.com/babel/jfs/t1/36002/35/9106/3311/5cd4f1bdE06ff07ed/9570fdd46ecd3a76.png">购物领金币</li>
+           <li><img src="https://m.360buyimg.com/babel/jfs/t1/50929/1/374/1847/5cd4f1eaE5daf90db/cebbff76b25dc22e.png">每日领金币</li>
+           <li><img src="https://m.360buyimg.com/babel/jfs/t1/55911/31/402/858/5cd4f23eE6f536460/5da079255c6dfabe.png">vip阶梯价</li>
+       </ul>
+   </div>
+</body>
+<script>
+        var open = document.querySelector(".open");
+        var flag = true;
+
+        open.onclick = function(){
+            // console.log(open)
+            if(flag){
+          var ullis = document.querySelectorAll("li");
+            for(var a=0;a<ullis.length;a++){
+            ullis[a].style.display = "block";
+            flag = false;
+        }       
+            }
+            else{
+                var ullis = document.querySelectorAll("li");
+            for(var a=0;a<ullis.length;a++){
+            ullis[a].style.display = "none";
+            flag = true;
+        }
+        }
+        }
+</script>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册页面</title>
+    <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+    <style>
+        input{
+            size:24
+        }
+	.input_title{width:160px;text-align:right;}
+	.input_content{width:507px;text-align:left;padding:5px 5px;}
+    </style>
+</head>
+<body>
+    <table>
+        <tr class="register_table_line">
+            <td class="input_title" >名字：</td>
+            <td class="input_content"> <input id="fname" type="text"/><span class='warn' id='DivFname'></span></td>
+          </tr>
+          <tr class="register_table_line">
+            <td class="input_title" >姓氏：</td>
+            <td class="input_content"><input id="lname" type="text" /><span class='warn' id='DivName'></span></td>
+          </tr>
+          <tr class="register_table_line">
+            <td class="input_title"  >登录名：</td>
+            <td class="input_content"><input name="sname" type="text"/> </td>
+          </tr>
+          <tr class="register_table_line">
+            <td class="input_title" >密码：</td>
+            <td class="input_content"><input id="pwd" type="password" /> <span class='warn' id='DivPwd'></span></td>
+          </tr>
+          <tr class="register_table_line">
+            <td class="input_title" >再次输入密码：</td>
+            <td class="input_content"><input id="repwd"  type="password" /><span class='warn' id='DivRepwd'></span>
+            </td>
+          </tr>
+          <tr class="register_table_line">
+            <td class="input_title" >电子邮箱：</td>
+            <td class="input_content"><input id="email"  type="text" /> <span class='warn' id='DivEmail'></span><td>
+          </tr>
+          <tr>
+              <td><input type="submit" value="提交" id="send" style="margin-left: 70px;" /></td>
+              <td><input type="reset" value="重置" id="res" /></td>
+          </tr>
+    </table>
+</body>
+
+ <script type="text/javascript">
+ $(document).ready(function() {
+    //绑定失去焦点事件
+	 $("#fname").blur(checkFname);
+	 $("#lname").blur(checkName);
+    $("#email").blur(checkEmail);
+    $("#pwd").blur(checkPass);
+    $("#repwd").blur(checkRePass);
+    //提交表单,调用验证函数
+    $("#myform").submit(function () {
+        var flag = true;
+        if (!checkFname()) flag = false;
+        if (!checkName()) flag = false;
+        if (!checkEmail()) flag = false;
+        if (!checkPass()) flag = false;
+        if (!checkRePass()) flag = false;
+        return flag;
+});
+//验证名字
+ function checkFname() {
+ 	 var $fname = $("#fname");
+ 	    var $divID = $("#DivFname");
+ 	    $divID.html("");
+ 	    if ($fname.val() == "") {
+ 	        $divID.html("名字不能为空");
+ 	        return false;
+ 	    }	   
+ 	    return true;    
+ }
+ //验证姓氏
+ function checkName() {
+ 	 var $name = $("#lname");
+ 	    var $divID = $("#DivName");
+ 	    $divID.html("");
+ 	    if ($name.val() == "") {
+ 	        $divID.html("姓氏不能为空");
+ 	        return false;
+ 	    }
+ 	   
+ 	    return true;    
+ }
+ 
+
+//验证密码
+function checkPass() {
+    var $pwd = $("#pwd");
+    var $divID = $("#DivPwd");
+    $divID.html("");
+    if ($pwd.val() == "") {
+        $divID.html("密码不能为空");
+        return false;
+    }
+    if ($pwd.val().length < 6) {
+        $divID.html("密码必须等于或大于6个字符");
+        return false;
+    }
+    return true;
+}
+//验证重复密码
+function checkRePass() {
+    var $pwd = $("#pwd"); //输入密码
+    var $repwd = $("#repwd");  //再次输入密码
+    var $divID = $("#DivRepwd");
+    $divID.html("");
+    if ($pwd.val() != $repwd.val()) {
+        $divID.html("两次输入的密码不一致");
+        return false;
+    }
+    return true;
+}
+ 
+//验证Email
+function checkEmail() {
+	 var $mail = $("#email");
+	    var $divID = $("#DivEmail");
+	    $divID.html("");
+	    if ($mail.val() == "") {
+	        $divID.html("Email不能为空");
+	        return false;
+	    }
+	    if ($mail.val().indexOf("@") == -1) {
+	        $divID.html("Email格式不正确，必须包含@");
+	        return false;
+	    }
+	    if ($mail.val().indexOf(".") == -1) {
+	        $divID.html("Email格式不正确，必须包含.");
+	        return false;
+	    }
+	    return true;    
+}
+
+});
+</script>
+</html>

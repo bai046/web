@@ -1,0 +1,77 @@
+对于一个div，任意给定一个新的尺寸{width:x,height:y}，让div从当前尺寸渐变到这个新尺寸(相当于一个动画效果)，要求width和height尽量按比例同步渐变。
+
+以下是我的代码：
+
+<!DOCTYPE html>
+<html>
+<body>
+    <span>目标宽度：</span><input id='id_width' type='input' value='300'/></br>
+    <span>目标高度：</span><input id='id_height' type='input' value='200'/></br>
+    <input id='id_BtnEnlarge' type='button' value='DIV尺寸渐变' style="margin-bottom:10px;"/>
+    <div id='id_DivTest' style='width:100px;height:100px;background-color:red;overflow:hidden;'></div>
+
+    <script type="text/javascript">
+        function enlargeDiv (size) {
+            var div = document.getElementById('id_DivTest');
+            var step = 2; //定义单次尺寸变化量
+            
+            //计算当前尺寸和目标尺寸的差
+            var wDiff = size.width - parseInt(div.style.width);
+            var hDiff = size.height - parseInt(div.style.height);
+
+            //记录尺寸变化方向
+            var wDirec = wDiff > 0 ? 1 : -1;
+            var hDirec = hDiff > 0 ? 1 : -1;
+            
+            wDiff = Math.abs(wDiff);
+            hDiff = Math.abs(hDiff);
+            
+            //计算本次尺寸变化量
+            var wAdd, hAdd;
+            
+            if (wDiff == 0) {
+                wAdd = 0;
+                hAdd = step < hDiff ? step : hDiff;
+            }
+            else if (hDiff == 0) {
+                hAdd = 0;
+                wAdd = step < wDiff ? step : wDiff;
+            }
+            else if (wDiff > hDiff) {
+                wAdd = step < wDiff ? step : wDiff;
+                hAdd = Math.floor(wAdd*hDiff/wDiff);
+    
+                if(wAdd == wDiff) hAdd = hDiff;
+            }
+            else {
+                hAdd = step < hDiff ? step : hDiff;
+                wAdd = Math.floor(hAdd*wDiff/hDiff);
+                
+                if(hAdd == hDiff) wAdd = wDiff;    
+            }
+            
+            div.style.width = parseInt(div.style.width) + wAdd*wDirec + "px";
+            div.style.height = parseInt(div.style.height) + hAdd*hDirec + "px";
+            
+            if(wAdd == wDiff && hAdd == hDiff) div.enlargeTimer = clearInterval(div.enlargeTimer);
+                
+        }
+    
+        document.getElementById('id_BtnEnlarge').onclick = function() {
+            var w = parseInt(document.getElementById('id_width').value);
+            var h = parseInt(document.getElementById('id_height').value);
+            
+            if(w >= 0 && h >= 0) {
+                var size = {width:w, height:h};
+                var div = document.getElementById('id_DivTest');
+                
+                if(div.enlargeTimer) return; //防止重复点击产生多个渐变过程
+                div.enlargeTimer = setInterval(function(){enlargeDiv(size);}, 30);
+            }
+            
+        };
+            
+        
+    </script>
+</body>
+</html>

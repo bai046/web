@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js改变div的宽度和高度</title>
+    <style>
+        #mydiv{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //拿到div
+            var div = document.getElementById("mydiv");
+            //拿到两个按钮
+            var btns = document.getElementsByTagName("input");
+ 
+            btns[0].onclick = function () {
+                //拿到div显示出来的宽度
+                //alert(getStyle(div,"width"));
+                //alert(parseInt(getStyle(div,"width")) + 20);
+                //改变宽度
+                div.style.width = parseInt(getStyle(div,"width")) + 20 + "px";
+            }
+            btns[1].onclick = function () {
+                //改变高度
+                div.style.height = parseInt(getStyle(div, "height")) + 20 + "px";
+            }
+        }
+ 
+        //获取style样式的css属性,考虑兼容;ie,火狐/谷歌;
+        function getStyle(parm1,parm2) {
+            return parm1.currentStyle ? parm1.currentStyle[parm2] : getComputedStyle(parm1)[parm2];  //parm1,要改变的元素代替名;parm2,要改变的属性名
+        }
+    </script>
+</head>
+<body>
+    <div id="mydiv"></div>
+    <input type="button" value="改变宽度"/>
+    <input type="button" value="改变高度"/>
+</body>
+</html>
