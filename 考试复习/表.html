@@ -1,27 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>表单验证</title>
 </head>
 <body>
-     
-<ul>
-    <li>水果</li>
-    <li>饮料</li>
-</ul>
-<ol>
-    <li>水果</li>
-    <li>饮料</li>
- 
-</ol>
-<dl>
-    <dt>水果</dt>
-    <dd>苹果</dd> 
-    <dt>饮料</dt>
-    <dd>可乐</dd>
-</dl>
-
+    <form method="post" name="myform" id="myform">
+        <table id="center" border="0" cellspace="0" cellpadding="0">
+            <tr>
+                <td>您的Email：</td>
+                <td><input type="text" id="email"/><span class="text" id="err_mail"></span></td>
+            </tr>
+            <tr>
+                <td>输入密码：</td>
+                <td><input type="password" id="pwd"/><span class="text" id="err_pwd"></span></td>
+            </tr>
+            <tr>
+                <td>再输入一遍密码：</td>
+                <td><input type="password" id="repwd"/><span class="text" id="err_repwd"></span></td>
+            </tr>
+            <tr>
+                <td>您的姓名：</td>
+                <td><input type="text" id="user"/><span class="text" id="err_user"></span></td>
+            </tr>
+            <tr>
+                <td>性别：</td>
+                <td><input name="sex" type="radio" value="1"/>
+                    <input name="sex" type="radio" value="0"/>
+                </td>
+            </tr>
+            <tr>
+                <td>出生日期：</td>
+                <td>
+                    <select name="year" size="1">
+                        <option value="1998" selected="selected">1998</option>
+                    </select>年
+                    <select name="month">
+                        <option value="1">1</option>
+                    </select>月
+                    <select name="day">
+                        <option value="12">12</option>
+                    </select>日
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp</td>
+                <td><input name="btn" type="submit" value="注册"/></td>
+            </tr>
+        </table>
+    </form>
+	<script>
+		var passwordVal;
+        //为表单元素添加失去焦点事件
+        $("form :input").blur(function(){
+            var $parent = $(this).parent();
+            $parent.find(".msg").remove(); //删除以前的提醒元素（find()：查找匹配元素集中元素的所有匹配元素）
+            //验证姓名
+            if($(this).is("#username")){
+                var nameVal = $.trim(this.value); // $.trim() 这个方法用于去除字符串前后两头的空格，并返回去除空格后的字符串
+                if(nameVal == ""){
+                    var errorMsg = "用户名不能为空！";
+                    $parent.append("<span class='msg onError'>" + errorMsg + "</span>");
+                }
+                else{
+                    var okMsg=" 输入正确";
+                    $parent.find(".high").remove();
+                    $parent.append("<span class='msg onSuccess'>" + okMsg + "</span>");
+                }
+            }
+            //验证密码
+            if($(this).is("#password")){
+                passwordVal = $.trim(this.value);
+                if(passwordVal== "" || passwordVal.length < 8 || passwordVal.length > 16){
+                    var errorMsg = "密码不能为空！且密码的长度要大于8小于16";
+                    $parent.append("<span class='msg onError'>" + errorMsg + "</span>");
+                }
+                else{
+                    var okMsg=" 输入正确";
+                    $parent.find(".high").remove();
+                    $parent.append("<span class='msg onSuccess'>" + okMsg + "</span>");
+                }
+			}
+			// 确认密码
+			if($(this).is("#cpassword")){
+                var cpasswordVal = $.trim(this.value);
+                if(cpasswordVal== "" || cpasswordVal.length < 8 || cpasswordVal.length > 16){
+                    var errorMsg = "密码不能为空！且密码的长度要大于8小于16";
+                    $parent.append("<span class='msg onError'>" + errorMsg + "</span>");
+                } else if(cpasswordVal!=passwordVal) {
+					console.log(passwordVal);
+					var errorMsg = "密码不匹配！";
+                    $parent.append("<span class='msg onError'>" + errorMsg + "</span>");
+				} else{
+                    var okMsg=" 输入正确";
+                    $parent.append("<span class='msg onSuccess'>" + okMsg + "</span>");
+                }  
+			}
+        });
+        
+        /**
+*编写一个查看字符串中是否含有数字的方法，含有数字返回false,没有数字返回true
+*/
+function isRealName(val){
+    let flag = true ;
+    console. Log(val);
+    for (let i = 0; i < val.Length; i++) {
+    if (val [i]==="null" ||val[i] == null) {
+    return false;
+    }
+    if (!isNaN(val[i]) ){
+    flag = false;
+    console . Log(vaL[i]);
+    }
+    }
+    return flag;
+}
+    </script>
 </body>
 </html>

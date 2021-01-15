@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <script type="text/javascript" src="jquery-1.8.3.js"></script>
+        <script type="text/javascript">
+            //1.密码不能为空，大于等于6个字符
+            //2.两次输入密码是否一致
+            //3.姓名不能为空，不能有数字
+            $("#myform :input").blur(function(){
+                $(document).ready(function() {
+                    //提交表单
+                    $("#myform").submit(function () {
+                        return check();
+                    });
+                });
+                function check() {
+                    var pwd = $("#pwd").val();
+                    if(pwd == "") {
+                        alert("密码不能为空！");
+                        return false;
+                    }
+                    else if(pwd.length < 6) {
+                        alert("密码的长度不小于6");
+                        return false;
+                    }
+                    var repwd = $("#repwd").val();
+                    if(repwd != pwd) {
+                        alert("两次输入密码不一致！");
+                        return false;
+                    }
+                    var username = $("#user").val();
+                    if(username == "") {
+                        alert("姓名不能为空！");
+                        return false;
+                    }
+                    for(var i = 0;i < username.length;i++) {
+                        //substring(i,i+1)是获取姓名中的每一个字符
+                        var num = username.substring(i,i+1);
+                        if(isNaN(num) == false) {
+                            alert("姓名中不能有数字！");
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+            });
+            </script>
+        <style type="text/css">
+            .text{
+                color:red;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="post" name="myform" id="myform">
+            <table id="center" border="0" cellspace="0" cellpadding="0">
+                <tr>
+                    <td>您的Email：</td>
+                    <td><input type="text" id="email"/><span class="text" id="err_mail"></span></td>
+                </tr>
+                <tr>
+                    <td>输入密码：</td>
+                    <td><input type="password" id="pwd"/><span class="text" id="err_pwd"></span></td>
+                </tr>
+                <tr>
+                    <td>再输入一遍密码：</td>
+                    <td><input type="password" id="repwd"/><span class="text" id="err_repwd"></span></td>
+                </tr>
+                <tr>
+                    <td>您的姓名：</td>
+                    <td><input type="text" id="user"/><span class="text" id="err_user"></span></td>
+                </tr>
+                <tr>
+                    <td>性别：</td>
+                    <td><input name="sex" type="radio" value="1"/>
+                        <input name="sex" type="radio" value="0"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>出生日期：</td>
+                    <td>
+                        <select name="year" size="1">
+                            <option value="1998" selected="selected">1998</option>
+                        </select>年
+                        <select name="month">
+                            <option value="1">1</option>
+                        </select>月
+                        <select name="day">
+                            <option value="12">12</option>
+                        </select>日
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp</td>
+                    <td><input name="btn" type="submit" value="注册"/></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery-1.12.4.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$("#myform").submit(function(){
+				function checkfrom(){
+				var email = $("#email").val();
+				var pwd = $("#pwd").val();
+				var rpwd = $("#rpwd").val();
+				var name = $("#name").val();
+				if(email == null || email==""){
+					alert("email不能为空！");
+				}
+				else if(email.indexOf('@') == -1){
+					alert("email必须包含@！");
+				}
+				else if(email.indexOf(".") == -1){
+					alert("email必须包含.");
+				}
+				else if(pwd == null || pwd==""){
+					alert("密码不能为空!");
+				}
+				else if(pwd.length<6){
+					alert("密码长度不能小于6位数！");
+				}
+				else if(pwd.val() != rpwd.val()){
+					alert("两次输入密码不一致！");
+				}
+				else if(name == null || name==""){
+					alert("用户名不能为空！");
+				}
+				for(var i=0;i<name.length;i++){
+					var a = name.charAt(i)
+					if(!isNaN(a)){
+						alert("用户名不能包含数字！");
+					}
+					break;
+				}
+			}
+			});	
+		});			
+		</script>
+	</head>
+	<body>
+		<form method="post" name="myform" id="myform">
+            <table>
+                <tr>
+                    <td>您的Email：</td>
+                    <td><input type="text" id="email"/></td>
+                </tr>
+                <tr>
+                    <td>输入密码：</td>
+                    <td><input type="password" id="pwd"/></td>
+                </tr>
+                <tr>
+                    <td>再输入一遍密码：</td>
+                    <td><input type="password" id="repwd"/></td>
+                </tr>
+                <tr>
+                    <td>您的姓名：</td>
+                    <td><input type="text" id="user"/></td>
+                </tr>
+                <tr>
+                    <td>性别：</td>
+                    <td><input name="sex" type="radio" value="1"/>男
+                        <input name="sex" type="radio" value="0"/>女
+                    </td>
+                </tr>
+                <tr>
+                    <td>出生日期：</td>
+                    <td>
+                        <select name="year"><option>1998</option></select>年
+					    <select name="month"><option>1</option></select>月
+						<select name="day"><option>12</option></select>日
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp</td>
+                    <td><input name="btn" type="submit" value="注册"/></td>
+                </tr>
+            </table>
+        </form>
+		</form>
+	</body>
+</html>
