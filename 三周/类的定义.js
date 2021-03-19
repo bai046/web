@@ -121,3 +121,76 @@ let newObj=Object.assign({name:"zhangsan",age:8080},{age:"lisi"})
 console.log(newObj)
 
 //Object方法
+
+//类的继承
+class Point{
+    constructor(x,y){
+        this.x=x;
+        this.y=y;
+    }
+    printPoint(){
+        console.log(this.x);
+        console.log(this.y);
+    }
+}
+let p1=new Point(22,33);
+p1.printPoint();
+
+//面对对象的三大主题：封装(类) 继承 多态(复用)
+class redPoint extends Point{
+    constructor(a,b){
+        super(22,33)
+        this.a=a;
+        this.b=b;
+    }
+    printRedPoint(){
+        console.log(this.a);
+        console.log(this.b);
+    }
+}
+let redpoint=new redPoint(44,55);
+redPoint.printRedPoint();//44,55
+redPoint.printPoint();//22,33
+
+
+//解构 析构
+let arr21=[1,2,3,4,5,6,7]
+console.log(arr21[1]);
+//数组析构
+let [a,b,c,d,e]=[1,2,3,4,5,6,7]
+let [,,,d,e]=[1,2,3,4,5,6,7]
+console.log(d)
+console.log(e)
+//rest参数
+let [a,b,c,...rest]=[1,2,3,4,5,6,7]
+console.log(rest);
+
+let obj2={
+    name:"zhangsan",
+    age:12,
+    address:"nanchang"
+}
+let {name,age,address,score=100}=obj2
+console.log(name);
+console.log(age);
+
+// 对象的嵌套解构
+let obj3={
+    name:"zhangsan",
+    age:30,
+    address:"jiangxi",
+    score:{
+        match:100,
+        english:120
+    }
+}
+let {name,age,address,
+    score:{
+        match,
+        english
+    }
+} = obj3
+console.log(match);
+console.log(age);
+
+
