@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>便签</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="./vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="./index.css">
+    <!-- 引入组件库 -->
+    <script src="./index.js"></script>
+
+    <style>
+        #main {
+            border: 2px solid;
+            margin: auto;
+            width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <el-container>
+        <el-header>江西软件职业技术大学</el-header>
+        <el-main>
+            <div id="main">
+
+                <!-- {{ message }} -->
+                <el-input v-model="input" placeholder="请输入待办事项" @keyup.13.native="add">
+                    <el-button type="primary" slot="append" @click="addItem">增加事项</el-button>
+                </el-input>
+                <hr>
+                <el-tabs v-model="activeName" @tab-click="handleClick">
+                    <el-tab-pane label="待办事项" name="first">
+                        <li type="none" v-for="(value,index) in lists" ::key="index" v-show="!value.finished">
+                            <el-checkbox v-model="value.finished" @click="changed(value)">{{value.name}}</el-checkbox>
+
+                        </li>
+                    </el-tab-pane>
+                    <el-tab-pane label="已办事项" name="second">
+                        <li type="none" v-for="(value,index) in lists" ::key="index" v-show="value.finished">
+                            <el-checkbox v-model="value.finished" @click="changed(value)">{{value.name}}</el-checkbox>
+                        </li>
+                    </el-tab-pane>
+                    <el-tab-pane label="全部事项" name="third">
+                        <li type="none" v-for="(value,index) in lists" ::key="index">
+                            <el-checkbox v-model="value.finished" @click="changed(value)">{{value.name}}</el-checkbox>
+                        </li>
+                    </el-tab-pane>
+                </el-tabs>
+            </div>
+        </el-main>
+    </el-container>
+
+    <script>
+
+        var app = new Vue({
+            el: '#main',
+            data: {
+                input: "",
+                activeName: 'first',
+                lists: [
+                    { name: "Java编程", finished: true },
+                    { name: "操作系统", finished: true },
+                    { name: "计算机网络", finished: false }
+                ]
+            },
+            methods: {
+                add(){
+                    this.addItem();
+                },
+                addItem() {
+                    // console.log("增加新事项")
+                    if (this.input.length > 0) {
+                        this.lists.push({
+                            name: this.input,
+                            finished: false
+                        })
+                    }
+                    this.input = "";
+                },
+                changed(value) {
+                    value.finished = !value.finished;
+
+                }
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>
