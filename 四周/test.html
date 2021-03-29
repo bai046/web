@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
+    <style>
+        #test {
+            /* border:2px solid green; */
+            width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="test">
+        <div id="header">
+            {{message}}
+        </div>
+        <hr>
+        <div id="wrapper">
+            <li type="none" v-for="(value,index) in lists" ::key="index" v-if="value.score>60">
+                {{value.name}}:{{value.score}}
+            </li>
+            <hr>
+            <div id="content" v-html="htmlContent">
+                <!-- {{htmlContent}} -->
+            </div>
+            <hr>
+            <div id="t1">
+                {{message}}
+                <br>
+                {{12+55}}
+                <br>
+                <!-- js data函数 -->
+                {{new Date()}}
+                <br>
+                <!-- 三元运算 -->
+                {{message.length>1?"good":"bad"}}
+            </div>
+            <button v-on:click="changed">提交</button>
+            <!-- <div v-on:click="changed" style="background-color: chartreuse;">改变数组</div> -->
+            <div @click="changed" style="background-color: chartreuse;">改变数组2</div>
+            <hr>
+            <!-- 等同于if(true) else(false) -->
+            <div v-if="true">
+                这是v-if
+            </div>
+            <div v-else>
+                这是v-else
+            </div>
+
+        </div>
+    </div>
+    <script>
+        // vue为函数
+        var vm = new Vue({
+            el: "#test",
+            data: {
+                message: "江西软件职业技术大学 软件工程 vue架构课程",
+                htmlContent: "<div style='background-color:red'>B190109</div>",
+                lists: [
+                    { name: "Java编程", score: 87 },
+                    { name: "C语言编程", score: 97 },
+                    { name: "操作系统", score: 90 },
+                    { name: "计算机网络", score: 34 },
+                    { name: "vue架构课程", score: 99 }
+                ]
+            },
+            methods: {
+                changed: function changed() {
+                    this.lists.sort(function (pre, next) {
+                        return next.score - pre.score
+                    })
+                }
+            },
+        })
+
+    </script>
+</body>
+
+</html>
