@@ -1,5 +1,13 @@
-var arr10=[1,2,3,4]
-arr10.every(function(arg){
-    console.log(arg);
-    return true;
-});
+var i = 1;
+var six ="";
+var timer = setInterval(function () {
+    var mm=Math.round(Math.random()*9);
+	console.log(i++,mm)
+    if(i<7)
+    {
+    six+=mm;
+    }else{
+        console.log(six);
+     clearInterval(timer);
+    } 
+},1000)

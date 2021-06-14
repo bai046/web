@@ -1,15 +1,6 @@
-//rest新参数，传数组(作为最后一个)
-function printName3(a,c,...rest){
-    console.log(a)
-    console.log(c)
-    console.log(rest)
-
-//in下标of值
-    for(const x in rest){
-        console.log(x)
-    }
-    for(const x of rest){
-        console.log(x)
-    }
-}
-printName3(1,2,3,4)
+name4="app";
+name5="le";
+var result6=name4+name5;
+console.log(result6);
+var result7=name4.concat(name5);
+console.log(result7);

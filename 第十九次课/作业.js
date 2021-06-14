@@ -99,7 +99,7 @@ p.printRegions();
 
 
 // 毛同学的
-//function City(cityName,cityArea,cityPostcode,cityRegions){
+// function City(cityName,cityArea,cityPostcode,cityRegions){
 //     this.cityName=cityName;
 //     this.cityArea=cityArea;
 //     this.cityPostcode=cityPostcode;

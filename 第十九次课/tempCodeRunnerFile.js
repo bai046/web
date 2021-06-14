@@ -1,30 +1,50 @@
-function City(cityName,cityArea,cityPostcode,cityRegions){
-    this.cityName=cityName;
-    this.cityArea=cityArea;
-    this.cityPostcode=cityPostcode;
-    this.cityRegions=cityRegions;
-}
+function city(cityName,cityArea,cityPostcode,cityRegions){
+    this.cityName=cityName,
+    this.cityArea=cityArea,
+    this.cityPostcode=cityPostcode,
+    this.cityRegions=cityRegions
 
-var EastLake={
-   orgionArea:123,
-   orgionName:"东湖区",
-   orgionPostcode:"123456",
-}
-var WestLake={
-   orgionArea:231,
-   orgionName:"西湖区",
-   orgionPostcode:"654321",
-}
+    var cityRegions = new Array();
+    var obj = {orgionName: '东湖区',
+    orgionPostcode: 'abcdef',
+    orgionArea:1000};
+    cityRegions[cityRegions.length] = obj;
+    cityRegions = [{orgionName: '东湖区',
+                orgionPostcode: 'abcdef',
+                orgionArea:1000},
+            {orgionName: "西湖区",
+            orgionPostcode: 'abcdef',
+            orgionArea:1000},
+            {orgionName: "青山湖区",
+            orgionPostcode: 'abcdef',
+            orgionArea:1000}];
+		
 
 
-City.prototype.show=function(){
-    for(let i=0;i<cityRegions.length;i++){
-        console.log("cityName:" + this.cityName + "cityArea:" + this.cityArea +
-        "cityPostcode:" + this.cityPostcode + "cityRegions:" +this.cityRegions[i]);
+    city.prototype.printName=function (){
+        console.log(this.cityName)
     }
-   
-}()
+    city.prototype.printArea=function (){
+        console.log(this.cityArea)
+    }
+    city.prototype.printPostcode=function (){
+        console.log(this.cityPostcode)
+    }
 
-var cityRegions=[EastLake,WestLake]
-var city1=new City("南昌市",12345,"564545",cityRegions)
-console.log(city1)
+    city.prototype.printRegions=function (){
+    // for (arr of cityRegions){
+    //     console.log(arr)        
+    // }
+    for(var i=0;i<cityRegions.length;i++){
+        
+        console.log(cityRegions[i].orgionName+' '+cityRegions[i].orgionPostcode+' '+cityRegions[i].orgionArea+' ');
+       }
+}
+    
+}
+  
+var p=new city("南昌市",888888,'abcdef',);
+p.printName();
+p.printArea();
+p.printPostcode();
+p.printRegions();

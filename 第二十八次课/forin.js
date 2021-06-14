@@ -13,3 +13,20 @@ for (const key in temp) {
         
 //     }
 // }
+
+
+var i = 1;
+var six ="";
+var timer = setInterval(function () {
+    var mm=Math.round(Math.random()*9);//随机生成0~9内数字
+	console.log(i++,mm)
+    if(i<7)
+    {
+    six+=mm;//拼接
+    }else{
+    six+=mm;//拼接
+
+     clearInterval(timer);//关闭计时器
+    } 
+    console.log(six);
+},500)
