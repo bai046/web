@@ -14,7 +14,7 @@ export default {
   data(){
     return{
       lists:[1,2,3,4,5,6],
-      isShow:false
+      isShow:true
     }
   }
 }
